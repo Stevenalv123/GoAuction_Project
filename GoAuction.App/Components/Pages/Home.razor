@@ -1,0 +1,14 @@
+﻿@page "/"
+@inject NavigationManager NavigationManager
+
+<h1>Hello, world!</h1>
+<button @onclick="NavigateToLogin">Iniciar Sesión</button>
+
+
+@code {
+    private void NavigateToLogin()
+    {
+        NavigationManager.NavigateTo("/login");
+    }
+}
+Welcome to your new app.

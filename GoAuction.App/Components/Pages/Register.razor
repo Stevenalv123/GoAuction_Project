@@ -1,7 +1,243 @@
 ﻿@page "/register"
+@inject NavigationManager NavigationManager
 
-<h3>Register</h3>
+<div class="login-header">
+    <button @onclick="ReturnBack">
+        <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"><path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path></svg>
+        <span>Back</span>
+    </button>
+</div>
+
+
+<div class="center-container">
+    <form class="form">
+        <h3 style="text-align: center;">Sign up</h3>
+        <div class="flex-column">
+            <label>Username </label>
+        </div>
+        <div class="inputForm">
+            <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <input placeholder="Create a Username" class="input" type="text" required>
+        </div>
+
+        <div class="flex-column">
+            <label>Password </label>
+        </div>
+        <div class="inputForm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="-64 0 512 512" height="20"><path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path><path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"></path></svg>
+            <input placeholder="Create a Password" class="input" type="password" required>
+        </div>
+
+        <div class="flex-column">
+            <label>Confirm Password </label>
+        </div>
+        <div class="inputForm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="-64 0 512 512" height="20"><path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path><path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"></path></svg>
+            <input placeholder="Confirm your Password" class="input" type="password" required>
+        </div>
+
+        <button class="button-submit" @onclick="GoConfirmationPage">Sign Up</button>
+        <p class="p line">Or Sign Up With</p>
+
+        <div class="flex-row">
+            <button class="btn google">
+                <svg xml:space="preserve" style="enable-background:new 0 0 512 512;" viewBox="0 0 512 512" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" id="Layer_1" width="20" version="1.1">
+                <path d="M113.47,309.408L95.648,375.94l-65.139,1.378C11.042,341.211,0,299.9,0,256
+	                    c0-42.451,10.324-82.483,28.624-117.732h0.014l57.992,10.632l25.404,57.644c-5.317,15.501-8.215,32.141-8.215,49.456
+	                    C103.821,274.792,107.225,292.797,113.47,309.408z" style="fill:#FBBB00;"></path>
+                <path d="M507.527,208.176C510.467,223.662,512,239.655,512,256c0,18.328-1.927,36.206-5.598,53.451
+	                    c-12.462,58.683-45.025,109.925-90.134,146.187l-0.014-0.014l-73.044-3.727l-10.338-64.535
+	                    c29.932-17.554,53.324-45.025,65.646-77.911h-136.89V208.176h138.887L507.527,208.176L507.527,208.176z" style="fill:#518EF8;"></path>
+                <path d="M416.253,455.624l0.014,0.014C372.396,490.901,316.666,512,256,512
+	                    c-97.491,0-182.252-54.491-225.491-134.681l82.961-67.91c21.619,57.698,77.278,98.771,142.53,98.771
+	                    c28.047,0,54.323-7.582,76.87-20.818L416.253,455.624z" style="fill:#28B446;"></path>
+                <path d="M419.404,58.936l-82.933,67.896c-23.335-14.586-50.919-23.012-80.471-23.012
+	                    c-66.729,0-123.429,42.957-143.965,102.724l-83.397-68.276h-0.014C71.23,56.123,157.06,0,256,0
+	                    C318.115,0,375.068,22.126,419.404,58.936z" style="fill:#F14336;"></path>
+
+                </svg>
+
+                Google
+
+            </button>
+
+            <button class="btn facebook">
+                <svg width="30px" height="30px" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="24" cy="24" r="20" fill="#3B5998" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M29.315 16.9578C28.6917 16.8331 27.8498 16.74 27.3204 16.74C25.8867 16.74 25.7936 17.3633 25.7936 18.3607V20.1361H29.3774L29.065 23.8137H25.7936V35H21.3063V23.8137H19V20.1361H21.3063V17.8613C21.3063 14.7453 22.7708 13 26.4477 13C27.7252 13 28.6602 13.187 29.8753 13.4363L29.315 16.9578Z" fill="white" />
+                </svg>
+
+                Facebook
+
+            </button>
+        </div>
+    </form>
+</div>
+
+<style>
+    button {
+        display: flex;
+        height: 3em;
+        width: 100px;
+        align-items: center;
+        justify-content: center;
+        background-color: #eeeeee4b;
+        border-radius: 3px;
+        letter-spacing: 1px;
+        transition: all 0.2s linear;
+        cursor: pointer;
+        border: none;
+        background: #fff;
+    }
+
+    button > svg {
+        margin-right: 5px;
+        margin-left: 5px;
+        font-size: 20px;
+        transition: all 0.4s ease-in;
+    }
+
+    button:hover > svg {
+        font-size: 1.2em;
+        transform: translateX(-5px);
+    }
+
+    button:hover {
+        box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+        transform: translateY(-2px);
+    }
+
+    .center-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin-top: -140px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #ffffff;
+        padding: 30px;
+        width: 450px;
+        border-radius: 20px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    ::placeholder {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .form button {
+        align-self: flex-end;
+    }
+
+    .flex-column > label {
+        color: #151717;
+        font-weight: 600;
+    }
+
+    .inputForm {
+        border: 1.5px solid #ecedec;
+        border-radius: 10px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        transition: 0.2s ease-in-out;
+    }
+
+    .input {
+        margin-left: 10px;
+        border-radius: 10px;
+        border: none;
+        width: 100%;
+        height: 100%;
+    }
+
+    .input:focus {
+        outline: none;
+    }
+
+    .inputForm:focus-within {
+        border: 1.5px solid #2d79f3;
+    }
+
+    .flex-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    .flex-row > div > label {
+        font-size: 14px;
+        color: black;
+        font-weight: 400;
+    }
+
+    .span {
+        font-size: 14px;
+        margin-left: 5px;
+        color: #2d79f3;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .button-submit {
+        margin: 20px 0 10px 0;
+        background-color: #151717;
+        border: none;
+        color: white;
+        font-size: 15px;
+        font-weight: 500;
+        border-radius: 10px;
+        height: 50px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .p {
+        text-align: center;
+        color: black;
+        font-size: 14px;
+        margin: 5px 0;
+    }
+
+    .btn {
+        margin-top: 10px;
+        width: 100%;
+        height: 50px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        gap: 10px;
+        border: 1px solid #ededef;
+        background-color: white;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+    }
+
+    .btn:hover {
+        border: 1px solid #2d79f3;
+    }
+</style>
 
 @code {
+    private void ReturnBack()
+    {
+        NavigationManager.NavigateTo("/");
+    }
 
+    private void GoConfirmationPage()
+    {
+        NavigationManager.NavigateTo("/confirmationCode");
+    }
 }

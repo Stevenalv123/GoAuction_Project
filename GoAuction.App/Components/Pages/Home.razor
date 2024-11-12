@@ -3,6 +3,7 @@
 
 <h1>Hello, world!</h1>
 <button @onclick="NavigateToLogin">Iniciar Sesión</button>
+<button @onclick="NavigateToRegister">Registrarse</button>
 
 
 @code {
@@ -10,5 +11,10 @@
     {
         NavigationManager.NavigateTo("/login");
     }
+
+    private void NavigateToRegister()
+    {
+        NavigationManager.NavigateTo("/register");
+    }
 }
-Welcome to your new app.
+

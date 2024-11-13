@@ -1,8 +1,45 @@
 ﻿@inherits LayoutComponentBase
+
 <div class="page">
     <main>
+        <div class="top-row px-4">
+            <button class="shop-car"><img src="shoppingcart.png" alt="Shopping Cart" /></button>
+            <button class="favorites"><img src="favorite.png" alt="Favorites"/></button>
+            <button class="contact-us">Contact Us</button>
+        </div>
+
+        <div class="sidebar">
+            <NavMenu />
+        </div>
+
         <article class="content px-4">
             @Body
         </article>
     </main>
 </div>
+
+<style>
+    .shop-car, .favorites {
+        background-color: #F2F2F2;
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .shop-car:hover, .favorites:hover {
+            background-color: #e0e0e0;
+        }
+
+    .shop-car img, .favorites img {
+        width: 20px; 
+        height: 20px;
+    }
+
+    
+</style>

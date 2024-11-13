@@ -13,7 +13,7 @@ main {
 }
 
 .top-row {
-    background-color: red;
+    background-color: #f7f7f7;
     border-bottom: 1px solid #d6d5d5;
     justify-content: flex-end;
     height: 3.5rem;
@@ -62,7 +62,6 @@ main {
         position: sticky;
         top: 0;
         z-index: 1;
-        background-color:red;
     }
 
     .top-row.auth ::deep a:first-child {
@@ -76,17 +75,3 @@ main {
         padding-right: 1.5rem !important;
     }
 }
-
-.contact-us {
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-    .contact-us:hover {
-        background-color: #333;
-    }

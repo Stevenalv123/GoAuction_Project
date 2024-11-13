@@ -1,31 +1,5 @@
 ﻿@page "/"
 @inject NavigationManager NavigationManager
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h1>Welcome to GoAuction</h1>
-            <p>GoAuction is a platform where you can buy and sell items through auctions.</p>
-            <p>Register now and start bidding!</p>
-            <button class="btn btn-primary" @onclick="NavigateToRegister">Register</button>
-            <button class="btn btn-secondary" @onclick="NavigateToLogin">Login</button>
-        </div>
-        <div class="col-md-6">
-            <img src="images/auction.jpg" class="img-fluid" alt="Auction">
-        </div>
-    </div>
-</div>
 
-
-@code {
-    private void NavigateToLogin()
-    {
-        NavigationManager.NavigateTo("/login");
-    }
-
-    private void NavigateToRegister()
-    {
-        NavigationManager.NavigateTo("/register");
-    }
-}
 

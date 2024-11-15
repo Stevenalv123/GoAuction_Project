@@ -1,45 +1,102 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
 
 <div class="page">
     <main>
-        <div class="top-row px-4">
-            <button class="shop-car"><img src="shoppingcart.png" alt="Shopping Cart" /></button>
-            <button class="favorites"><img src="favorite.png" alt="Favorites"/></button>
-            <button class="contact-us">Contact Us</button>
+        <div class="top-row d-flex justify-content-between px-4">
+            <nav class="nav ">
+                <a class="nav-link active text-decoration-none text-dark" aria-current="page" href="#">Home</a>
+                <a class="nav-link text-decoration-none text-dark" href="#">Shop</a>
+                <a class="nav-link text-decoration-none text-dark" href="#">Sale</a>
+                <a class="nav-link text-decoration-none text-dark" href="#">Settings</a>
+            </nav>
+            <div class="d-flex gap-2">
+                <button class="shop-car"><img src="shoppingcart.png" alt="Shopping Cart" /></button>
+                <button class="favorites"><img src="favorite.png" alt="Favorites" /></button>
+                <button class="contact-us" @onclick="GoLogin">Sign in</button>
+            </div>
         </div>
+        <div class="body-row">
+            <div class="sidebar">
+                <NavMenu />
+            </div>
 
-        <div class="sidebar">
-            <NavMenu />
+            <article class="content px-4">
+                @Body
+            </article>
         </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
+        
     </main>
+    
 </div>
 
+
+
 <style>
-    .shop-car, .favorites {
+    .top-row .shop-car, .top-row .favorites {
         background-color: #F2F2F2;
         border-radius: 50px;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         border: none;
         display: flex;
         align-items: center;
         justify-content: center;
-        cursor: pointer;
-        transition: background-color 0.3s;
+        overflow: hidden;
     }
 
-        .shop-car:hover, .favorites:hover {
-            background-color: #e0e0e0;
-        }
+    .shop-car:hover, .favorites:hover {
+        background-color: #e0e0e0;
+    }
 
-    .shop-car img, .favorites img {
-        width: 20px; 
+    .top-row .shop-car img,
+    .top-row .favorites img {
+        width: 20px;
         height: 20px;
+        padding: 0;
+        margin: 0;
+        object-fit: contain;
     }
 
-    
+    .body-row {
+        flex-direction: row;
+        display: flex;
+        flex: 1;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .top-row {
+        background-color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        height: 60px;
+        margin:0;
+    }
+
+    .sidebar {
+        width: 300px; /* Ancho fijo de la barra lateral */
+        background-color: #FFFFFF;
+        padding: 20px;
+        flex-shrink: 0;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px;
+    }
+
 </style>
+
+
+@code{
+    private void GoLogin()
+    {
+        NavigationManager.NavigateTo("/login");
+    }
+}

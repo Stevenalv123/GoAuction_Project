@@ -1,56 +1,77 @@
 ﻿<div class="custom-sidebar">
-    <div class="menu-header">
-        <h3>Categorías</h3>
+    <div class="categories">
+        <strong><label style="margin-bottom:20px;">Categories</label></strong>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+                All products
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+            <label class="form-check-label" for="flexRadioDefault2">
+                Desks
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+            <label class="form-check-label" for="flexRadioDefault3">
+                Furnitures
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+            <label class="form-check-label" for="flexRadioDefault4">
+                Boxes
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+            <label class="form-check-label" for="flexRadioDefault5">
+                Drawers
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6">
+            <label class="form-check-label" for="flexRadioDefault6">
+                Technology
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7">
+            <label class="form-check-label" for="flexRadioDefault7">
+                Bins
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault8">
+            <label class="form-check-label" for="flexRadioDefault8">
+                Clothe
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault9">
+            <label class="form-check-label" for="flexRadioDefault9">
+                Pets
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault10">
+            <label class="form-check-label" for="flexRadioDefault10">
+                Multimedia
+            </label>
+        </div>
     </div>
-    <ul class="menu-list">
-        <li class="menu-item">
-            <NavLink class="menu-link" href="/categoria1" Match="NavLinkMatch.Prefix">
-                <i class="bi bi-folder-fill"></i> Categoría 1
-            </NavLink>
-        </li>
-        <li class="menu-item">
-            <NavLink class="menu-link" href="/categoria2" Match="NavLinkMatch.Prefix">
-                <i class="bi bi-folder-fill"></i> Categoría 2
-            </NavLink>
-        </li>
-        <li class="menu-item">
-            <NavLink class="menu-link" href="/categoria3" Match="NavLinkMatch.Prefix">
-                <i class="bi bi-folder-fill"></i> Categoría 3
-            </NavLink>
-        </li>
-    </ul>
+
+    <div class="price-range">
+        <strong><label style="margin:20px 0 20px 0;">Price Range</label></strong>
+        <div>
+            <label for="trackbar">Max Value: $ @value</label>
+            <input type="range" id="trackbar" min="1" max="4000" step="1" @bind="value" />
+        </div>
+    </div>
 </div>
 
-<style>
-    .custom-sidebar {
-        width: 250px;
-        background-color: #f8f9fa;
-        padding: 20px;
-        border-right: 1px solid #ddd;
-    }
-    .menu-header h3 {
-        margin-bottom: 20px;
-    }
-    .menu-list {
-        list-style: none;
-        padding: 0;
-    }
-    .menu-item {
-        margin-bottom: 10px;
-    }
-    .menu-link {
-        text-decoration: none;
-        color: #333;
-        display: block;
-        padding: 10px;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-    .menu-link:hover {
-        background-color: #e9ecef;
-    }
-    .menu-link.active {
-        background-color: #007bff;
-        color: white;
-    }
-</style>
+@code {
+    private int value = 50;
+}
